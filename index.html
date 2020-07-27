@@ -61,7 +61,7 @@
     <script>
         //Pin Generate Function
         function pinGenerator(){
-            document.getElementById("generatePinNumber").value = parseInt(Math.random() * 10000);
+            document.getElementById("generatePinNumber").value = Math.floor(1000 + Math.random() * 9000);
         }
 
         //Insert Number Function
@@ -97,7 +97,7 @@
         function actionCount(){
             const actionCount = parseInt(document.getElementById("actionCountdown").innerText);
                 const actionLeft = document.getElementById("actionCountdown").innerText = actionCount -1;
-                if(actionLeft < 0){
+                if(actionLeft < 1){
                     alert("❌ 0 Try Left. Please try after 30 minutes!!!");
                     document.getElementById("actionCountdown").innerText = 0;
                 }
