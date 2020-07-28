@@ -42,7 +42,7 @@
                                 <div class="button" onclick="clearNumber()">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn" onclick="isMatch()">Submit</button>
+                                <button type="submit" class="submit-btn" id="submitBtn" onclick="isMatch()">Submit</button>
                                 <p class="action-left"><span id="actionCountdown">3</span> try left</p>
                             </div>
                     </div>
@@ -86,7 +86,10 @@
         function isMatch(){
             const generatePin = document.getElementById("generatePinNumber").value;
             const pinNumber = document.getElementById("pinNumber").value;
-            if(generatePin == pinNumber){
+            if(pinNumber == ''){
+                alert("Please Enter Your Pin Number");
+            }
+            else if(generatePin == pinNumber){
                 notify("notifyMatched");
             }
             else{
@@ -100,6 +103,7 @@
                 if(actionLeft < 1){
                     alert("❌ 0 Try Left. Please try after 30 minutes!!!");
                     document.getElementById("actionCountdown").innerText = 0;
+                    document.getElementById("submitBtn").disabled = true;
                 }
         }
         //Notify Function
